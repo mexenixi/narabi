@@ -176,6 +176,14 @@ The maintainer can use an accepted proposal to prepare the string-catalog entry 
 
 The repository intentionally does not include the original developer's signing team setting, certificates, provisioning profiles, or private keys.
 
+## Support development
+
+Narabi is completely free and open source. All app features remain available without sponsorship.
+
+If you would like to support continued development, testing, maintenance, documentation, localization, accessibility improvements, and future Mexenixi open-source projects, optional one-time sponsorship is available through [GitHub Sponsors](https://github.com/sponsors/mexenixi).
+
+Sponsorship is separate from the app and is never required to use Narabi.
+
 ## License
 
 Source code is licensed under the [Apache License 2.0](LICENSE).

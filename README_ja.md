@@ -186,6 +186,14 @@ Translation Issueで **Add a new language** を選び、ロケールコード、
 
 公開リポジトリには、元の開発者のTeam設定、証明書、Provisioning Profile、秘密鍵を含めません。
 
+## 開発を応援する
+
+Narabiは、すべての機能を無料で利用できるオープンソースアプリです。GitHub Sponsorsで支援しなくても、利用できる機能は変わりません。
+
+継続的な開発、テスト、保守、文書整備、翻訳、アクセシビリティ改善、および今後のMexenixiオープンソースプロジェクトを応援したい方は、[GitHub Sponsors](https://github.com/sponsors/mexenixi)から任意の一回支援を行えます。
+
+GitHub Sponsorsによる支援はアプリとは別の仕組みであり、Narabiを利用するために必要なものではありません。
+
 ## ライセンス
 
 ソースコードは[Apache License 2.0](LICENSE)で公開します。
