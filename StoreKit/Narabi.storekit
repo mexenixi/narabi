@@ -1,0 +1,45 @@
+{
+  "identifier" : "F0B9B87A-36DF-4F78-92EF-8D44C75335EA",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "100",
+      "familyShareable" : false,
+      "internalID" : "1",
+      "localizations" : [
+        { "description" : "Optional support purchase. No features are unlocked.", "displayName" : "A Little Support", "locale" : "en_US" },
+        { "description" : "任意の応援購入です。機能は追加されません。", "displayName" : "ちょっと応援", "locale" : "ja_JP" }
+      ],
+      "productID" : "com.mexenixi.narabi.support.small",
+      "referenceName" : "A Little Support",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "500",
+      "familyShareable" : false,
+      "internalID" : "2",
+      "localizations" : [
+        { "description" : "Optional support purchase. No features are unlocked.", "displayName" : "Generous Support", "locale" : "en_US" },
+        { "description" : "任意の応援購入です。機能は追加されません。", "displayName" : "しっかり応援", "locale" : "ja_JP" }
+      ],
+      "productID" : "com.mexenixi.narabi.support.medium",
+      "referenceName" : "Generous Support",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "1000",
+      "familyShareable" : false,
+      "internalID" : "3",
+      "localizations" : [
+        { "description" : "Optional support purchase. No features are unlocked.", "displayName" : "Big Support", "locale" : "en_US" },
+        { "description" : "任意の応援購入です。機能は追加されません。", "displayName" : "大きく応援", "locale" : "ja_JP" }
+      ],
+      "productID" : "com.mexenixi.narabi.support.large",
+      "referenceName" : "Big Support",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : { "_failTransactionsEnabled" : false, "_locale" : "ja_JP", "_storefront" : "JPN", "_timeRate" : 0 },
+  "subscriptionGroups" : [],
+  "version" : { "major" : 3, "minor" : 0 }
+}

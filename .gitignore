@@ -1,0 +1,49 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode user state and local build output
+DerivedData/
+build/
+.build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcscmblueprint
+
+# Archives and debug symbols
+*.ipa
+*.dSYM
+*.dSYM.zip
+*.xcarchive
+
+# Signing and provisioning material
+*.mobileprovision
+*.provisionprofile
+*.p12
+*.pfx
+*.cer
+*.der
+*.pem
+*.key
+
+# Local temporary and backup files
+*.orig
+*.bak
+*.tmp
+*~
+Narabi_*FullText*.txt
+Narabi_*Reconstructable*.txt
+Narabi_*Audit*.txt
+*_Backup_*/
+Narabi_ReconstructableMaster_*.txt
+Narabi_*_Audit_*.txt
+Narabi_Before*/
+# Xcode per-user workspace and scheme state
+**/xcuserdata/
+
+# Public repository safety
+Narabi_Private_Current_State_*.txt
+Narabi_Public_Candidate_*.txt

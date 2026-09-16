@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B5DD768F1CBC8AC0383F846 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4539EEF1ED1A59FA8B0FA3AD /* Foundation.framework */; };
+		566596EC228602F47A9C54F5 /* NarabiUITests/NarabiUISmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948CB43528E8F358C8A97A2 /* NarabiUITests/NarabiUISmokeTests.swift */; };
+		A10000000000000000000001 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000002 /* ZIPFoundation */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3DC4C29304FDA6400845F89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D309EB3D303882DA00EE52C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D309EB44303882DA00EE52C0;
+			remoteInfo = Narabi;
+		};
+		F2F9DBD0D2F78743AEB9504F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D309EB3D303882DA00EE52C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D309EB44303882DA00EE52C0;
+			remoteInfo = Narabi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4539EEF1ED1A59FA8B0FA3AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C0CFE041F775F8523A467910 /* NarabiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NarabiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D309EB45303882DA00EE52C0 /* Narabi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Narabi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3DC4C25304FDA6400845F89 /* NarabiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NarabiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E948CB43528E8F358C8A97A2 /* NarabiUITests/NarabiUISmokeTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NarabiUITests/NarabiUISmokeTests.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D309EB47303882DA00EE52C0 /* Narabi */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Narabi;
+			sourceTree = "<group>";
+		};
+		D3DC4C26304FDA6400845F89 /* NarabiTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NarabiTests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		759BC6AEAD431318418AD04B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B5DD768F1CBC8AC0383F846 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D309EB42303882DA00EE52C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000001 /* ZIPFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3DC4C22304FDA6400845F89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E4E3AAD399C0837DE7B7D30 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4539EEF1ED1A59FA8B0FA3AD /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		9EDC4CBC4AB5412CCA92B8E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E3AAD399C0837DE7B7D30 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3C7FEC0B27E07521DF098A4 /* NarabiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E948CB43528E8F358C8A97A2 /* NarabiUITests/NarabiUISmokeTests.swift */,
+			);
+			name = NarabiUITests;
+			sourceTree = "<group>";
+		};
+		D309EB3C303882DA00EE52C0 = {
+			isa = PBXGroup;
+			children = (
+				D309EB47303882DA00EE52C0 /* Narabi */,
+				D3DC4C26304FDA6400845F89 /* NarabiTests */,
+				D309EB46303882DA00EE52C0 /* Products */,
+				A3C7FEC0B27E07521DF098A4 /* NarabiUITests */,
+				9EDC4CBC4AB5412CCA92B8E1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D309EB46303882DA00EE52C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D309EB45303882DA00EE52C0 /* Narabi.app */,
+				D3DC4C25304FDA6400845F89 /* NarabiTests.xctest */,
+				C0CFE041F775F8523A467910 /* NarabiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8C3AD2A5FEEB95086E2D048 /* NarabiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5DCB7E341EABFDA4546720D /* Build configuration list for PBXNativeTarget "NarabiUITests" */;
+			buildPhases = (
+				262DC38418BA543F87A29F1C /* Sources */,
+				759BC6AEAD431318418AD04B /* Frameworks */,
+				8F16694F38E98D65F8E5AD14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D39135B2CA072C395DB1004D /* PBXTargetDependency */,
+			);
+			name = NarabiUITests;
+			productName = NarabiUITests;
+			productReference = C0CFE041F775F8523A467910 /* NarabiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		D309EB44303882DA00EE52C0 /* Narabi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D309EB50303882DB00EE52C0 /* Build configuration list for PBXNativeTarget "Narabi" */;
+			buildPhases = (
+				D309EB41303882DA00EE52C0 /* Sources */,
+				D309EB42303882DA00EE52C0 /* Frameworks */,
+				D309EB43303882DA00EE52C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D309EB47303882DA00EE52C0 /* Narabi */,
+			);
+			name = Narabi;
+			packageProductDependencies = (
+				A10000000000000000000002 /* ZIPFoundation */,
+			);
+			productName = Narabi;
+			productReference = D309EB45303882DA00EE52C0 /* Narabi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D3DC4C24304FDA6400845F89 /* NarabiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3DC4C2D304FDA6400845F89 /* Build configuration list for PBXNativeTarget "NarabiTests" */;
+			buildPhases = (
+				D3DC4C21304FDA6400845F89 /* Sources */,
+				D3DC4C22304FDA6400845F89 /* Frameworks */,
+				D3DC4C23304FDA6400845F89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3DC4C2A304FDA6400845F89 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D3DC4C26304FDA6400845F89 /* NarabiTests */,
+			);
+			name = NarabiTests;
+			productName = NarabiTests;
+			productReference = D3DC4C25304FDA6400845F89 /* NarabiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D309EB3D303882DA00EE52C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2660;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					D309EB44303882DA00EE52C0 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					D3DC4C24304FDA6400845F89 = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = D309EB44303882DA00EE52C0;
+					};
+				};
+			};
+			buildConfigurationList = D309EB40303882DA00EE52C0 /* Build configuration list for PBXProject "Narabi" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				hi,
+				he,
+				ar,
+				en,
+				Base,
+				ja,
+				"zh-Hans",
+				"zh-Hant",
+				ko,
+				es,
+				fr,
+				de,
+				"pt-BR",
+				it,
+				nl,
+				pl,
+				ru,
+				uk,
+				tr,
+				id,
+				th,
+				vi,
+			);
+			mainGroup = D309EB3C303882DA00EE52C0;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A10000000000000000000003 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D309EB46303882DA00EE52C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D309EB44303882DA00EE52C0 /* Narabi */,
+				D3DC4C24304FDA6400845F89 /* NarabiTests */,
+				C8C3AD2A5FEEB95086E2D048 /* NarabiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8F16694F38E98D65F8E5AD14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D309EB43303882DA00EE52C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3DC4C23304FDA6400845F89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		262DC38418BA543F87A29F1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				566596EC228602F47A9C54F5 /* NarabiUITests/NarabiUISmokeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D309EB41303882DA00EE52C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3DC4C21304FDA6400845F89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D39135B2CA072C395DB1004D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Narabi;
+			target = D309EB44303882DA00EE52C0 /* Narabi */;
+			targetProxy = F2F9DBD0D2F78743AEB9504F /* PBXContainerItemProxy */;
+		};
+		D3DC4C2A304FDA6400845F89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D309EB44303882DA00EE52C0 /* Narabi */;
+			targetProxy = D3DC4C29304FDA6400845F89 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4D76B0590AA75F24A1B6A2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mexenixi.narabi.uitests;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Narabi;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6C8576CBD919F7C904E93776 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mexenixi.narabi.uitests;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Narabi;
+			};
+			name = Debug;
+		};
+		D309EB4E303882DB00EE52C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D309EB4F303882DB00EE52C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D309EB51303882DB00EE52C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Sort & Done! uses the camera to scan documents and add them as pages.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Sort & Done! saves arranged pages to your photo library in the selected order.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Sort & Done! uses your photo library to select images as document pages.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mexenixi.narabi;
+				PRODUCT_NAME = Narabi;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D309EB52303882DB00EE52C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Sort & Done! uses the camera to scan documents and add them as pages.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Sort & Done! saves arranged pages to your photo library in the selected order.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Sort & Done! uses your photo library to select images as document pages.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mexenixi.narabi;
+				PRODUCT_NAME = Narabi;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D3DC4C2B304FDA6400845F89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mexenixi.NarabiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Narabi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Narabi";
+			};
+			name = Debug;
+		};
+		D3DC4C2C304FDA6400845F89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mexenixi.NarabiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Narabi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Narabi";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D309EB40303882DA00EE52C0 /* Build configuration list for PBXProject "Narabi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D309EB4E303882DB00EE52C0 /* Debug */,
+				D309EB4F303882DB00EE52C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D309EB50303882DB00EE52C0 /* Build configuration list for PBXNativeTarget "Narabi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D309EB51303882DB00EE52C0 /* Debug */,
+				D309EB52303882DB00EE52C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3DC4C2D304FDA6400845F89 /* Build configuration list for PBXNativeTarget "NarabiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3DC4C2B304FDA6400845F89 /* Debug */,
+				D3DC4C2C304FDA6400845F89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5DCB7E341EABFDA4546720D /* Build configuration list for PBXNativeTarget "NarabiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D76B0590AA75F24A1B6A2AC /* Release */,
+				6C8576CBD919F7C904E93776 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A10000000000000000000003 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.20;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A10000000000000000000002 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A10000000000000000000003 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D309EB3D303882DA00EE52C0 /* Project object */;
+}
