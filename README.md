@@ -159,6 +159,14 @@ You do not need to build the app or edit source code to help improve a translati
 
 Natural local expression is preferred over literal translation. Suggestions from native and fluent speakers are especially helpful. Machine-assisted proposals are welcome when clearly identified. The Xcode string catalogs remain the source of truth.
 
+### Languages not yet included are welcome
+
+Suggestions are welcome even when a language is not currently included in Narabi. You do not need to prepare every string, build the app, edit an Xcode string catalog, or open a pull request.
+
+Use the Translation Issue form and choose **Add a new language**. Provide the locale code, language name, regional variant if applicable, writing direction, and as much proposed wording as you can. A partial proposal, terminology review, app-name suggestion, or offer to review a future draft is also useful. Leave **Current text** blank when the locale does not yet exist, and use **Reason and usage context** to explain regional usage, tone, script, or other requirements.
+
+The maintainer can use an accepted proposal to prepare the string-catalog entry and generated review file. Before a new locale is treated as complete, the interface strings, permission explanations, localized app name, App Store metadata, In-App Purchase names and descriptions, layout, text direction, and representative device screens should be reviewed. This staged process lets language contributors participate without needing Swift or Xcode knowledge.
+
 ## Build Notes
 
 1. Open `Narabi.xcodeproj` in Xcode.

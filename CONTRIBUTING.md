@@ -20,6 +20,12 @@ Narabiでは、不具合報告、端末別の検証結果、アクセシビリ�
 - 変更したファイルを明確にする。
 - 派生配布にNarabiまたはmexenixiのブランドを使用しない。
 
+### New languages / 新しい言語
+
+Languages that are not currently implemented are also welcome. For a new locale, choose **Add a new language** in the Translation Issue form. A complete translation is not required for the first proposal; partial wording, terminology guidance, an app-name suggestion, regional context, or an offer to review a draft can start the process. The maintainer can prepare the string-catalog and generated-review-file changes after the proposal is evaluated.
+
+現在未対応の言語も歓迎します。新しいロケールはTranslation Issueで **Add a new language** を選んでください。最初の提案で全翻訳を完成させる必要はなく、一部の文面、用語の助言、アプリ名の提案、地域差の説明、今後の翻訳案を確認できるという申し出から始められます。提案を確認した後、文字列カタログと閲覧用ファイルへの反映は管理者側で準備できます。
+
 ## Required Checks
 
 Before submitting a pull request, run the repository audits and the complete `NarabiTests` target. Swift changes must follow the repository format configuration. When changing paired Japanese and English public documents or Mermaid diagrams, update both versions in the same pull request.
