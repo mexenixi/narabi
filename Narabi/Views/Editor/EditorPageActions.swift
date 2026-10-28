@@ -85,6 +85,14 @@ extension EditorView {
         save()
     }
 
+    func addCompositeImageToTray(_ data: Data) {
+        guard !data.isEmpty else { return }
+        checkpoint()
+        project.tray.append(ProjectPage(originalData: data, renderedData: data))
+        traySelection.removeAll()
+        save()
+    }
+
     func applyCompositePages(_ updated: [ProjectPage]) {
         let targetIDs = Set(updated.map(\.id))
         let targetIndexes = project.pages.indices.filter { targetIDs.contains(project.pages[$0].id) }

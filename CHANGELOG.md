@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2
+
+- Added opening supported files from other apps and improved multi-file importing.
+- Added direct insertion of composite results into the project tray.
+- Improved tray refresh, drag previews, large-text layouts, accessibility, and UI stability.
+- Expanded localization coverage and updated automated tests.
+
 ## Unreleased
 
 - Initial public release preparation completed for the version 1 code and documentation baseline.

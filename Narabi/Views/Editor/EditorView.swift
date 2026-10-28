@@ -253,6 +253,9 @@ struct EditorView: View {
                         commitOutputName()
                         save()
                         showCompositeEditor = false
+                    },
+                    onAddCompositeToTray: { data in
+                        addCompositeImageToTray(data)
                     }
                 )
             }

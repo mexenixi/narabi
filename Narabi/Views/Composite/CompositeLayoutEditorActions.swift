@@ -210,25 +210,54 @@ extension CompositeLayoutEditor {
         prepareCurrentCompositeShare()
     }
 
+    func renderCurrentComposite(
+        pages snapshot: [ProjectPage], settings: ProductSettings, preset: ExportPreset
+    ) -> UIImage? {
+        ExportService.compositeImage(
+            pages: snapshot,
+            transparent: preset == .transparentPNG,
+            longEdge: settings.effectiveLongEdge(for: preset),
+            colorPolicy: settings.exportColorPolicy,
+            customPixelSize: settings.exactCustomPixelSize
+        )
+    }
+
+    func addCurrentCompositeToTray() {
+        guard !isAddingCompositeToTray, !isPreparingShare else { return }
+        isAddingCompositeToTray = true
+        let snapshot = appliedPages()
+        let settings = ProductSettings.shared
+        Task { @MainActor in
+            defer { isAddingCompositeToTray = false }
+            guard let image = renderCurrentComposite(
+                pages: snapshot, settings: settings, preset: settings.exportPreset
+            ), let data = image.pngData(), !data.isEmpty else {
+                exportErrorMessage = L10n.text("composite.addToTray.failed", "重ね合わせ画像を作成できませんでした。")
+                showExportError = true
+                return
+            }
+            onAddCompositeToTray(data)
+            showAddedToTrayToast = true
+            Task { @MainActor in
+                try? await Task.sleep(for: .seconds(1.6))
+                showAddedToTrayToast = false
+            }
+        }
+    }
+
     func prepareCurrentCompositeShare() {
         guard !isPreparingShare else { return }
         isPreparingShare = true
         let snapshot = appliedPages()
         let settings = ProductSettings.shared
         let preset = settings.exportPreset
-        let transparent = preset == .transparentPNG
-        let colorPolicy = settings.exportColorPolicy
         let jpegQuality = settings.jpegQuality
 
         Task { @MainActor in
             defer { isPreparingShare = false }
             guard
-                let image = ExportService.compositeImage(
-                    pages: snapshot,
-                    transparent: transparent,
-                    longEdge: settings.effectiveLongEdge(for: preset),
-                    colorPolicy: colorPolicy,
-                    customPixelSize: settings.exactCustomPixelSize
+                let image = renderCurrentComposite(
+                    pages: snapshot, settings: settings, preset: preset
                 )
             else {
 

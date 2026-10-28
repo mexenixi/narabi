@@ -61,17 +61,25 @@ extension EditorView {
                         Label(L10n.text("merge.selectedOrder", "順番に重ねる"), systemImage: "square.3.layers.3d")
                     }
                 } label: {
-                    Image(systemName: mergePages ? "square.3.layers.3d" : "rectangle.stack").frame(
+                    Image(systemName: "rectangle.stack").frame(
                         width: 24, height: 24)
                 }
                 .buttonStyle(.bordered)
                 .accessibilityLabel(
                     mergePages
                         ? L10n.text("merge.selectedOrder", "順番に重ねる") : L10n.text("merge.normal", "通常出力"))
-                Button(action: performExport) { Image(systemName: "square.and.arrow.up").font(.title2) }
-                    .buttonStyle(.borderedProminent)
-                    .accessibilityLabel(L10n.text("export.action", "出力"))
-                    .disabled(project.pages.isEmpty)
+                Button(action: performExport) {
+                    Image(systemName: mergePages ? "square.3.layers.3d" : "square.and.arrow.up")
+                        .frame(width: 24, height: 24)
+                }
+                .buttonStyle(.borderedProminent)
+                .accessibilityLabel(
+                    mergePages
+                        ? L10n.text("merge.openEditor", "重ね合わせ編集を開く")
+                        : L10n.text("export.action", "出力")
+                )
+                .accessibilityIdentifier(mergePages ? "editor.openComposite" : "editor.export")
+                .disabled(project.pages.isEmpty)
             }
             EditorActionLayout(
                 regular: editorActionRow(compactAI: false),

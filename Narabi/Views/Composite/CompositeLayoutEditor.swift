@@ -7,6 +7,7 @@ struct CompositeLayoutEditor: View {
     @Binding var outputName: String
     let onCancel: () -> Void
     let onSave: ([ProjectPage]) -> Void
+    let onAddCompositeToTray: (Data) -> Void
     @State var pages: [ProjectPage]
     @State var selectedID: UUID?
     @State var actionPage: ProjectPage?
@@ -21,6 +22,8 @@ struct CompositeLayoutEditor: View {
     @State var paperUnit: PaperUnit
     @State var sharePayload: CompositeSharePayload?
     @State var isPreparingShare = false
+    @State var isAddingCompositeToTray = false
+    @State var showAddedToTrayToast = false
     @State var showPhotoSavedToast = false
     @State var showNameRequest = false
     @State var showExportError = false
@@ -41,7 +44,8 @@ struct CompositeLayoutEditor: View {
 
     init(
         pages: [ProjectPage], outputName: Binding<String>, onCancel: @escaping () -> Void,
-        onSave: @escaping ([ProjectPage]) -> Void
+        onSave: @escaping ([ProjectPage]) -> Void,
+        onAddCompositeToTray: @escaping (Data) -> Void
     ) {
         _outputName = outputName
         let first = pages.first
@@ -74,6 +78,7 @@ struct CompositeLayoutEditor: View {
         _paperUnit = State(initialValue: initialUnit)
         self.onCancel = onCancel
         self.onSave = onSave
+        self.onAddCompositeToTray = onAddCompositeToTray
     }
     var paperSize: CGSize {
         paperPreset.sizeMM(
@@ -219,12 +224,31 @@ struct CompositeLayoutEditor: View {
                         Button {
                             requestCurrentCompositeShare()
                         } label: {
-                            if isPreparingShare {
-                                ProgressView()
-                            } else {
-                                Image(systemName: "square.and.arrow.up")
-                            }
-                        }.disabled(isPreparingShare)
+                              ZStack {
+                                  Image(systemName: "square.and.arrow.up")
+                                      .opacity(isPreparingShare ? 0 : 1)
+                                  ProgressView()
+                                      .controlSize(.small)
+                                      .opacity(isPreparingShare ? 1 : 0)
+                              }
+                              .frame(minWidth: 24, minHeight: 24)
+                          }.disabled(isPreparingShare || isAddingCompositeToTray)
+                        .accessibilityLabel(L10n.text("composite.share", "共有"))
+                        Button {
+                            addCurrentCompositeToTray()
+                        } label: {
+                              ZStack {
+                                  Image(systemName: "tray.and.arrow.down")
+                                      .opacity(isAddingCompositeToTray ? 0 : 1)
+                                  ProgressView()
+                                      .controlSize(.small)
+                                      .opacity(isAddingCompositeToTray ? 1 : 0)
+                              }
+                              .frame(minWidth: 24, minHeight: 24)
+                          }
+                        .disabled(isPreparingShare || isAddingCompositeToTray)
+                        .accessibilityLabel(L10n.text("composite.addToTray", "トレイに追加"))
+                        .accessibilityIdentifier("composite.addToTray")
                         Button {
                             onSave(appliedPages())
                         } label: {
@@ -289,6 +313,10 @@ struct CompositeLayoutEditor: View {
                     Text(L10n.text("export.photoSaved", "写真に保存しました")).padding(.horizontal, 16).padding(
                         .vertical, 10
                     ).background(.ultraThinMaterial, in: Capsule()).padding(.top, 8)
+                } else if showAddedToTrayToast {
+                    Text(L10n.text("composite.addedToTray", "トレイに追加しました"))
+                        .padding(.horizontal, 16).padding(.vertical, 10)
+                        .background(.ultraThinMaterial, in: Capsule()).padding(.top, 8)
                 }
             }
             .interactiveDismissDisabled(true)

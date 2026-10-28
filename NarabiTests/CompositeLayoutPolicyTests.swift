@@ -99,6 +99,15 @@ struct CompositeLayoutPolicyTests {
         #expect(CompositeLayoutPolicy.moving(values, from: 9, to: 0) == values)
     }
 
+    @Test func compositeResultCanBecomeIndependentTrayPage() {
+        let data = Data([1, 2, 3, 4])
+        let first = ProjectPage(originalData: data, renderedData: data)
+        let second = ProjectPage(originalData: data, renderedData: data)
+        #expect(first.id != second.id)
+        #expect(first.originalData == data)
+        #expect(first.renderedData == data)
+    }
+
     private func page(_ byte: UInt8) -> ProjectPage {
         ProjectPage(originalData: Data([byte]), renderedData: Data([byte]))
     }

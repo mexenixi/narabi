@@ -153,3 +153,9 @@ Narabi is independently developed and operated. Messages may not be reviewed or 
 ## Verification
 
 Build, source-audit, physical-device, print-preview, and storage verification records are maintained under [Docs](Docs/TESTING.md).
+
+## Version 1.2 highlights
+
+- Open supported files from Files and other apps, with multiple selection where the system picker supports it.
+- Add a completed composite image directly to the project tray.
+- Improved tray refresh, adaptive drag previews, large-text layouts, and accessibility.

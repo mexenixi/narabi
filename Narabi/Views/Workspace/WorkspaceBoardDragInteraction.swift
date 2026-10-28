@@ -133,7 +133,13 @@ extension WorkspaceBoardController {
         activeCell = cell
 
         let frameInBoard = collection.convert(cell.frame, to: dragOverlayView)
-        preview.frame = frameInBoard
+        let normalizedSize = WorkspaceDragPreviewPolicy.normalizedSize(
+            sourceSize: frameInBoard.size,
+            editorItemSize: editorLayout.itemSize,
+            trayItemSize: trayLayout.itemSize
+        )
+        preview.frame = CGRect(origin: .zero, size: normalizedSize)
+        preview.center = CGPoint(x: frameInBoard.midX, y: frameInBoard.midY)
         preview.layer.cornerRadius = 8
         preview.layer.masksToBounds = true
         preview.layer.borderWidth = 3
@@ -149,7 +155,7 @@ extension WorkspaceBoardController {
             let accent = UIColor(named: "AccentColor") ?? .systemBlue
             for layerIndex in stride(from: min(selected.count - 1, 2), through: 1, by: -1) {
                 let backing = UIView(
-                    frame: frameInBoard.offsetBy(dx: CGFloat(layerIndex * 7), dy: CGFloat(-layerIndex * 7)))
+                    frame: preview.frame.offsetBy(dx: CGFloat(layerIndex * 7), dy: CGFloat(-layerIndex * 7)))
                 backing.backgroundColor = .secondarySystemBackground
                 backing.layer.cornerRadius = 8
                 backing.layer.borderWidth = 2

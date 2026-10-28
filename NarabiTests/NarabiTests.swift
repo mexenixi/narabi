@@ -135,6 +135,36 @@ struct EditorHistoryPolicyTests {
     }
 }
 
+@Suite("Workspace drag preview policy")
+struct WorkspaceDragPreviewPolicyTests {
+    @Test("Uses the geometric midpoint between editor and tray sizes")
+    func usesAdaptiveMiddleSize() {
+        let result = WorkspaceDragPreviewPolicy.normalizedSize(
+            sourceSize: CGSize(width: 200, height: 300),
+            editorItemSize: CGSize(width: 200, height: 300),
+            trayItemSize: CGSize(width: 88, height: 106)
+        )
+        let expectedLongEdge = sqrt(300.0 * 106.0)
+        #expect(abs(max(result.width, result.height) - expectedLongEdge) < 0.001)
+        #expect(abs(result.width / result.height - 2.0 / 3.0) < 0.001)
+    }
+
+    @Test("Produces the same long edge from either source area")
+    func isSourceIndependent() {
+        let editor = WorkspaceDragPreviewPolicy.normalizedSize(
+            sourceSize: CGSize(width: 200, height: 300),
+            editorItemSize: CGSize(width: 200, height: 300),
+            trayItemSize: CGSize(width: 88, height: 106)
+        )
+        let tray = WorkspaceDragPreviewPolicy.normalizedSize(
+            sourceSize: CGSize(width: 88, height: 106),
+            editorItemSize: CGSize(width: 200, height: 300),
+            trayItemSize: CGSize(width: 88, height: 106)
+        )
+        #expect(abs(max(editor.width, editor.height) - max(tray.width, tray.height)) < 0.001)
+    }
+}
+
 @Suite("Project persistence model")
 struct ProjectPersistenceTests {
     @Test("Round-trips page areas and project metadata")

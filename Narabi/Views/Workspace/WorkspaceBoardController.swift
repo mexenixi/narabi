@@ -27,7 +27,7 @@ final class WorkspaceBoardController: UIViewController,
     let trayCollection: UICollectionView
     let trayHeaderView = UIView()
     let dragOverlayView = UIView()
-    let trayTitleLabel = UILabel()
+    let trayToggleButton = UIButton(type: .system)
     var trayHeightConstraint: NSLayoutConstraint?
     var didDragDuringCurrentPress = false
     var autoScrollUnlocked = false
@@ -107,13 +107,20 @@ final class WorkspaceBoardController: UIViewController,
         editorCollection.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 180, right: 0)
 
         trayHeaderView.backgroundColor = .systemBackground
-        trayTitleLabel.text = "⌄"
-        trayTitleLabel.isUserInteractionEnabled = true
-        trayTitleLabel.addGestureRecognizer(
-            UITapGestureRecognizer(target: self, action: #selector(toggleTrayVisibility)))
-        trayTitleLabel.accessibilityLabel = L10n.text("workspace.tray.toggle", "素材欄を開閉")
-        trayTitleLabel.font = .preferredFont(forTextStyle: .headline)
-        trayTitleLabel.textAlignment = .center
+        trayToggleButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        trayToggleButton.addTarget(self, action: #selector(toggleTrayVisibility), for: .touchUpInside)
+        trayToggleButton.accessibilityLabel = L10n.text("workspace.tray.toggle", "素材欄を開閉")
+        trayToggleButton.imageView?.contentMode = .scaleAspectFit
+        trayToggleButton.tintColor = .label
+        trayToggleButton.configuration = {
+            var configuration = UIButton.Configuration.plain()
+            configuration.image = UIImage(systemName: "chevron.down")
+            configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(
+                pointSize: 16, weight: .semibold
+            )
+            configuration.contentInsets = .zero
+            return configuration
+        }()
         traySelectionCountLabel.font = .preferredFont(forTextStyle: .caption1)
         traySelectionCountLabel.textColor = .secondaryLabel
         trayDeleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
@@ -129,7 +136,7 @@ final class WorkspaceBoardController: UIViewController,
         traySelectButton.addTarget(self, action: #selector(toggleTraySelection), for: .touchUpInside)
 
         [
-            trayTitleLabel, traySelectionCountLabel, traySelectAllButton, trayClearButton, trayDeleteButton,
+            trayToggleButton, traySelectionCountLabel, traySelectAllButton, trayClearButton, trayDeleteButton,
             traySelectButton,
         ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -202,12 +209,12 @@ final class WorkspaceBoardController: UIViewController,
             trayHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             trayHeaderView.heightAnchor.constraint(equalToConstant: 44),
 
-            trayTitleLabel.leadingAnchor.constraint(equalTo: trayHeaderView.leadingAnchor, constant: 10),
-            trayTitleLabel.centerYAnchor.constraint(equalTo: trayHeaderView.centerYAnchor),
-            trayTitleLabel.widthAnchor.constraint(equalToConstant: 44),
-            trayTitleLabel.heightAnchor.constraint(equalToConstant: 44),
+            trayToggleButton.leadingAnchor.constraint(equalTo: trayHeaderView.leadingAnchor, constant: 10),
+            trayToggleButton.centerYAnchor.constraint(equalTo: trayHeaderView.centerYAnchor),
+            trayToggleButton.widthAnchor.constraint(equalToConstant: 44),
+            trayToggleButton.heightAnchor.constraint(equalToConstant: 44),
             traySelectionCountLabel.leadingAnchor.constraint(
-                greaterThanOrEqualTo: trayTitleLabel.trailingAnchor, constant: 8),
+                greaterThanOrEqualTo: trayToggleButton.trailingAnchor, constant: 8),
             traySelectionCountLabel.centerYAnchor.constraint(equalTo: trayHeaderView.centerYAnchor),
             traySelectAllButton.leadingAnchor.constraint(
                 equalTo: traySelectionCountLabel.trailingAnchor, constant: 10),
@@ -306,17 +313,17 @@ final class WorkspaceBoardController: UIViewController,
         traySelectionCountLabel.text =
             traySelectionMode ? L10n.format("selection.count", traySelection.count) : ""
         traySelectionCountLabel.isHidden = !traySelectionMode
-        traySelectButton.setTitle(nil, for: .normal)
-        traySelectButton.setImage(
-            UIImage(systemName: traySelectionMode ? "checkmark.circle.fill" : "checkmark.circle"),
-            for: .normal)
-        traySelectButton.accessibilityLabel =
-            traySelectionMode ? L10n.text("common.done", "完了") : L10n.text("common.select", "選択")
         traySelectAllButton.isHidden = !traySelectionMode
         trayClearButton.isHidden = !traySelectionMode
         trayDeleteButton.isHidden = !traySelectionMode
         let collapsed = project.isTrayCollapsed
-        trayTitleLabel.text = collapsed ? "⌃" : "⌄"
+        let isOpeningTray = trayCollection.isHidden && !collapsed
+        trayToggleButton.configuration?.image = UIImage(
+            systemName: collapsed ? "chevron.up" : "chevron.down"
+        )
+        trayToggleButton.accessibilityValue = collapsed
+            ? L10n.text("workspace.tray.closed", "閉じています")
+            : L10n.text("workspace.tray.open", "開いています")
         trayCollection.isHidden = collapsed
         trayHeightConstraint?.constant = collapsed ? 0 : 116
         editorCollection.contentInset.bottom = collapsed ? 8 : 180
@@ -325,6 +332,17 @@ final class WorkspaceBoardController: UIViewController,
         guard dragView == nil else { return }
         updateCollection(editorCollection, oldIDs: oldEditorIDs, newIDs: editorIDs)
         updateCollection(trayCollection, oldIDs: oldTrayIDs, newIDs: trayIDs)
+        if isOpeningTray {
+            // The model may already be current while the hidden collection still has stale cells.
+            // First restore its geometry, then reload unconditionally on the next main-loop turn.
+            view.layoutIfNeeded()
+            DispatchQueue.main.async { [weak self] in
+                guard let self, !self.trayCollection.isHidden else { return }
+                self.trayCollection.collectionViewLayout.invalidateLayout()
+                self.trayCollection.reloadData()
+                self.trayCollection.layoutIfNeeded()
+            }
+        }
         reloadChangedCells(
             in: editorCollection, oldItems: previousProject.pages, newItems: project.pages,
             oldSelection: self.previousEditorSelection, newSelection: editorSelection)
