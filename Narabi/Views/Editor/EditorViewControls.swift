@@ -73,73 +73,118 @@ extension EditorView {
                     .accessibilityLabel(L10n.text("export.action", "出力"))
                     .disabled(project.pages.isEmpty)
             }
-            ViewThatFits(in: .horizontal) {
-                editorActionRow(compactAI: false)
-                editorActionRow(compactAI: true)
-            }
+            EditorActionLayout(
+                regular: editorActionRow(compactAI: false),
+                compact: editorActionRow(compactAI: true),
+                stacked: stackedEditorActions
+            )
         }.padding(.horizontal)
     }
 
     @ViewBuilder
     func editorActionRow(compactAI: Bool) -> some View {
         HStack(spacing: 8) {
-            Button {
-                startAIRequest()
-            } label: {
-                if compactAI {
-                    Text(verbatim: "AI").fontWeight(.semibold).lineLimit(1)
-                } else {
-                    Label(L10n.text("ai.create", "AI並べ替え"), systemImage: "sparkles.rectangle.stack")
-                        .lineLimit(1).fixedSize(horizontal: true, vertical: false)
-                }
-            }
-            .accessibilityLabel(L10n.text("ai.create", "AI並べ替え"))
-            .disabled(project.pages.isEmpty)
+            aiSortButton(compactAI: compactAI)
             Spacer(minLength: 8)
             if editorSelectionMode {
-                Text(verbatim: String(editorSelection.count)).font(.caption.monospacedDigit())
-                    .accessibilityLabel(L10n.format("selection.count", editorSelection.count))
-                Button {
-                    let chosen = Set(editorSelection)
-                    editorSelection.append(
-                        contentsOf: project.pages.map(\.id).filter { !chosen.contains($0) })
-                } label: {
-                    Image(systemName: "checkmark.circle.fill")
-                }
-                .accessibilityLabel(L10n.text("selection.selectAll", "全選択"))
-                Button {
-                    editorSelection.removeAll()
-                } label: {
-                    Image(systemName: "circle")
-                }
-                .accessibilityLabel(L10n.text("selection.clearAll", "全解除"))
-                Button(role: .destructive) {
-                    deleteEditorSelection()
-                } label: {
-                    Image(systemName: "trash")
-                }
-                .disabled(editorSelection.isEmpty).accessibilityLabel(
-                    L10n.text("selection.delete", "選択項目を削除"))
+                editorSelectionCount
+                editorSelectionActions
             }
-            Button {
-                editorSelectionMode.toggle()
-                if !editorSelectionMode { editorSelection.removeAll() }
-            } label: {
-                Image(systemName: editorSelectionMode ? "checkmark.circle.fill" : "checkmark.circle")
-            }
-            .accessibilityLabel(
-                editorSelectionMode ? L10n.text("common.done", "完了") : L10n.text("common.select", "選択"))
-            Button {
-                undo()
-            } label: {
-                Image(systemName: "arrow.uturn.backward").font(.title2)
-            }.disabled(undoStack.isEmpty)
-            Button {
-                redo()
-            } label: {
-                Image(systemName: "arrow.uturn.forward").font(.title2)
-            }.disabled(redoStack.isEmpty)
+            editorSelectionModeButton
+            editorHistoryButtons
         }
+    }
+
+    // Keep the selection controls visible when larger text no longer fits in one row.
+    var stackedEditorActions: some View {
+        VStack(spacing: 6) {
+            HStack(spacing: 8) {
+                aiSortButton(compactAI: true)
+                Spacer(minLength: 8)
+                if !editorSelectionMode { editorSelectionModeButton }
+                editorHistoryButtons
+            }
+            if editorSelectionMode {
+                HStack(spacing: 8) {
+                    editorSelectionCount
+                    Spacer(minLength: 8)
+                    editorSelectionActions
+                    editorSelectionModeButton
+                }
+            }
+        }
+    }
+
+    func aiSortButton(compactAI: Bool) -> some View {
+        Button {
+            startAIRequest()
+        } label: {
+            if compactAI {
+                Text(verbatim: "AI").fontWeight(.semibold).lineLimit(1)
+            } else {
+                Label(L10n.text("ai.create", "AI並べ替え"), systemImage: "sparkles.rectangle.stack")
+                    .lineLimit(1).fixedSize(horizontal: true, vertical: false)
+            }
+        }
+        .accessibilityLabel(L10n.text("ai.create", "AI並べ替え"))
+        .accessibilityIdentifier("editor.aiSort")
+        .disabled(project.pages.isEmpty)
+    }
+
+    var editorSelectionCount: some View {
+        Text(verbatim: String(editorSelection.count)).font(.caption.monospacedDigit())
+            .accessibilityLabel(L10n.format("selection.count", editorSelection.count))
+    }
+
+    @ViewBuilder
+    var editorSelectionActions: some View {
+        Button {
+            let chosen = Set(editorSelection)
+            editorSelection.append(
+                contentsOf: project.pages.map(\.id).filter { !chosen.contains($0) })
+        } label: {
+            Image(systemName: "checkmark.circle.fill")
+        }
+        .accessibilityLabel(L10n.text("selection.selectAll", "全選択"))
+        Button {
+            editorSelection.removeAll()
+        } label: {
+            Image(systemName: "circle")
+        }
+        .accessibilityLabel(L10n.text("selection.clearAll", "全解除"))
+        Button(role: .destructive) {
+            deleteEditorSelection()
+        } label: {
+            Image(systemName: "trash")
+        }
+        .disabled(editorSelection.isEmpty).accessibilityLabel(
+            L10n.text("selection.delete", "選択項目を削除"))
+    }
+
+    var editorSelectionModeButton: some View {
+        Button {
+            editorSelectionMode.toggle()
+            if !editorSelectionMode { editorSelection.removeAll() }
+        } label: {
+            Image(systemName: editorSelectionMode ? "checkmark.circle.fill" : "checkmark.circle")
+        }
+        .accessibilityLabel(
+            editorSelectionMode ? L10n.text("common.done", "完了") : L10n.text("common.select", "選択"))
+        .accessibilityIdentifier("editor.selectionMode")
+    }
+
+    @ViewBuilder
+    var editorHistoryButtons: some View {
+        Button {
+            undo()
+        } label: {
+            Image(systemName: "arrow.uturn.backward").font(.title2)
+        }.disabled(undoStack.isEmpty)
+        Button {
+            redo()
+        } label: {
+            Image(systemName: "arrow.uturn.forward").font(.title2)
+        }.disabled(redoStack.isEmpty)
     }
 
     var workspaceBoard: some View {
@@ -257,6 +302,26 @@ extension EditorView {
             Button(L10n.text("page.swap", "入れ替え")) { applySingleTrayDrop(drop, action: .swap) }
             Button(L10n.text("page.replace", "更新")) { applySingleTrayDrop(drop, action: .update) }
             Button(L10n.text("common.cancel", "キャンセル"), role: .cancel) {}
+        }
+    }
+}
+
+private struct EditorActionLayout<Inline: View, Stacked: View>: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
+    let regular: Inline
+    let compact: Inline
+    let stacked: Stacked
+
+    var body: some View {
+        if dynamicTypeSize.isAccessibilitySize || dynamicTypeSize == .xxLarge || dynamicTypeSize == .xxxLarge {
+            stacked
+        } else {
+            ViewThatFits(in: .horizontal) {
+                regular
+                compact
+                stacked
+            }
         }
     }
 }

@@ -477,7 +477,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Narabi-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Sort & Done! uses the camera to scan documents and add them as pages.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Sort & Done! saves arranged pages to your photo library in the selected order.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Sort & Done! uses your photo library to select images as document pages.";
@@ -513,7 +515,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Narabi-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Sort & Done! uses the camera to scan documents and add them as pages.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Sort & Done! saves arranged pages to your photo library in the selected order.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Sort & Done! uses your photo library to select images as document pages.";

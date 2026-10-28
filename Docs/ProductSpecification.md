@@ -287,7 +287,7 @@ The App provides 21 languages: Japanese, English, Simplified Chinese, Traditiona
 ## 16. Support purchases
 
 - All functionality is free.
-- Products are A Little Support, Generous Support, and Big Support.
+- Products are A Little Support, More Support, and Big Support.
 - They are repeatable consumable StoreKit products.
 - They do not change editing features, storage capacity, priority response, or any other practical capability.
 - Only verified transactions count as successful.
@@ -351,11 +351,15 @@ Page-separated JPEG and PNG export creates one image file per output page. PDF e
 
 When a batch contains unreadable items, successfully created pages remain available and the App reports input, success, and failure counts. If all items fail, no empty project is created. Project-persistence failures, including out-of-space errors, are surfaced at the app root.
 
+<!-- OPTIONAL_SUPPORT_PURCHASE_CURRENT_BEHAVIOR_BEGIN -->
 ## Optional support purchases: current behavior
 
 Narabi keeps all editing and storage features free. The three optional products are consumable support purchases. A verified purchase displays one message selected at random from the three messages assigned to that product and the support page's selected language. The displayed message and receipt date are stored only on the device and can later be viewed from the support page. The history entrance is hidden until at least one message exists. The history can show all messages or filter by a language already present in the history. Purchase price, transaction identifier, progress, completion status, and supporter rank are not stored or displayed.
+<!-- OPTIONAL_SUPPORT_PURCHASE_CURRENT_BEHAVIOR_END -->
 
+<!-- NARABI-APPLE-SUBMISSION-SUPPORT:BEGIN -->
 A purchase does not change editing features, storage capacity, usage restrictions, support priority, or any other practical capability. After purchase, one of three thank-you messages for the selected Support-page language and product is shown at random, and the message text and received date are stored locally on the device. Each of the three messages has an equal chance of being selected and has no different functional or monetary value.
+<!-- NARABI-APPLE-SUBMISSION-SUPPORT:END -->
 
 <!-- NARABI-PRIVACY-CANONICAL:BEGIN -->
 The privacy policy published on the website is canonical. `Narabi/Legal/Privacy_ja.md` and `Narabi/Legal/Privacy_en.md` are synchronized offline-reading copies and must not be edited as independent canonical documents.

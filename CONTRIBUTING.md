@@ -20,12 +20,6 @@ Narabiでは、不具合報告、端末別の検証結果、アクセシビリ�
 - 変更したファイルを明確にする。
 - 派生配布にNarabiまたはmexenixiのブランドを使用しない。
 
-### New languages / 新しい言語
-
-Languages that are not currently implemented are also welcome. For a new locale, choose **Add a new language** in the Translation Issue form. A complete translation is not required for the first proposal; partial wording, terminology guidance, an app-name suggestion, regional context, or an offer to review a draft can start the process. The maintainer can prepare the string-catalog and generated-review-file changes after the proposal is evaluated.
-
-現在未対応の言語も歓迎します。新しいロケールはTranslation Issueで **Add a new language** を選んでください。最初の提案で全翻訳を完成させる必要はなく、一部の文面、用語の助言、アプリ名の提案、地域差の説明、今後の翻訳案を確認できるという申し出から始められます。提案を確認した後、文字列カタログと閲覧用ファイルへの反映は管理者側で準備できます。
-
 ## Required Checks
 
 Before submitting a pull request, run the repository audits and the complete `NarabiTests` target. Swift changes must follow the repository format configuration. When changing paired Japanese and English public documents or Mermaid diagrams, update both versions in the same pull request.
@@ -34,6 +28,6 @@ GitHub Actions repeats repository audits on Ubuntu and unit tests on a macOS iPh
 
 ## Translation / 翻訳
 
-Translation corrections and new-language proposals are welcome. You do not need to build the app or edit source code to contribute through a Translation issue. Start with [`Docs/Localization/README.md`](Docs/Localization/README.md), review the localized app names, and use the Translation issue template. The Xcode string catalogs are the source of truth; generated locale review files are for reading and search only.
+Translation corrections and new-language proposals are welcome. Start with [`Docs/Localization/README.md`](Docs/Localization/README.md), review the localized app names, and use the Translation issue template. The Xcode string catalogs are the source of truth; generated locale review files are for reading and search only.
 
-翻訳修正と新しい言語の提案を歓迎します。Translation Issueから提案する場合、アプリのビルドやソースコードの編集は必要ありません。まず[`Docs/Localization/README.md`](Docs/Localization/README.md)を読み、各言語のアプリ名を確認し、翻訳Issueテンプレートを利用してください。正本はXcode文字列カタログであり、言語別の生成ファイルは閲覧・検索用です。
+翻訳修正と新しい言語の提案を歓迎します。まず[`Docs/Localization/README.md`](Docs/Localization/README.md)を読み、各言語のアプリ名を確認し、翻訳Issueテンプレートを利用してください。正本はXcode文字列カタログであり、言語別の生成ファイルは閲覧・検索用です。

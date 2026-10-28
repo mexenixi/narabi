@@ -9,6 +9,7 @@ struct ImportView: View {
 
     let cancel: () -> Void
     let confirmed: (UUID) -> Void
+    let initialFileURLs: [URL]
 
     @State private var items: [ImportItem] = []
     @State private var photos: [PhotosPickerItem] = []
@@ -24,6 +25,7 @@ struct ImportView: View {
     @StateObject private var importProgress = ImportProgressState()
     @State private var importResultMessage = ""
     @State private var showImportResult = false
+    @State private var handledInitialFileURLs: Set<URL> = []
 
     var body: some View {
         ZStack {
@@ -109,6 +111,7 @@ struct ImportView: View {
                         )
                     }
                     .buttonStyle(.borderedProminent)
+                    .accessibilityIdentifier("import.createProject")
                     .disabled(items.isEmpty || processing || importingPhotos)
                     .padding(.bottom)
                 }
@@ -180,6 +183,19 @@ struct ImportView: View {
             Button(L10n.text("common.ok", "OK")) {}
         } message: {
             Text(importResultMessage)
+        }
+        .task(id: initialFileURLs) {
+            let newURLs = initialFileURLs.filter { !handledInitialFileURLs.contains($0) }
+            guard !newURLs.isEmpty else { return }
+            handledInitialFileURLs.formUnion(newURLs)
+            await addFiles(.success(newURLs))
+            if items.isEmpty {
+                importResultMessage = L10n.text(
+                    "import.result.failed",
+                    "選択した項目を読み込めませんでした。ファイル形式、内容、ファイルサイズを確認してください。"
+                )
+                showImportResult = true
+            }
         }
     }
 

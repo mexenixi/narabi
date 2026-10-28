@@ -43,7 +43,3 @@ Narabi_*_Audit_*.txt
 Narabi_Before*/
 # Xcode per-user workspace and scheme state
 **/xcuserdata/
-
-# Public repository safety
-Narabi_Private_Current_State_*.txt
-Narabi_Public_Candidate_*.txt

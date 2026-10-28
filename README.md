@@ -4,10 +4,6 @@
 
 Narabi is a local-first iPhone and iPad app for arranging photographs, images, scanned documents, and PDF pages as one visual sequence, then exporting the result in the format the user needs.
 
-## App Store
-
-Narabi / Sort & Done! version 1.0 is available on the [App Store](https://apps.apple.com/app/id6809654149).
-
 ## Why Narabi Was Created
 
 Narabi began with a need to arrange photographs and PDFs received from university classes and friends in one chosen order.
@@ -75,15 +71,6 @@ New features should preserve Narabi's uncluttered appearance and direct, intuiti
 
 The amount of functionality that can be added without losing the current clarity is treated as a practical limit for Narabi. A substantially different feature that cannot fit naturally within that limit may be developed as a separate Mexenixi app and connected when useful.
 
-## Product Principles
-
-Narabi is organized around four principles:
-
-1. **Treat mixed inputs as pages rather than as separate file-type workflows.** Photos, scans, PDF pages, and supported documents can be handled in one workspace.
-2. **Do not force users to delete material that is not part of the current export.** Candidate and replacement pages can remain in the Materials Area and return later.
-3. **Do not prescribe one correct use.** Users decide what a project means, how long it remains, which tools to use, and what to export.
-4. **Keep control of data and external services with the user.** Processing is local-first, no Narabi account is required, and external AI handoff occurs only through an explicit user-selected share action.
-
 ## Why Local Processing Matters
 
 Narabi processes documents on the user's device whenever possible. This is not only a security decision. It also keeps the location of files understandable and allows material to be organized, exported, and shared on the same device where it was first received.
@@ -106,9 +93,7 @@ Once a file is shared, the selected external service's own terms and privacy pol
 
 Narabi began as an independent project by a student in Japan studying in a healthcare-related field rather than specializing in software development.
 
-Microsoft Copilot was used as an assistive tool during development, including code drafting, technical investigation, documentation, translation review, and verification planning.
-
-Product requirements, design decisions, testing, verification, release decisions, and final responsibility remain with the developer. AI-generated or AI-assisted output was reviewed and adjusted before being incorporated into the project. See [Acknowledgements](ACKNOWLEDGEMENTS.md).
+AI is used as a tool to assist with code creation and technical consideration. Product requirements, design, verification, and release decisions are made by the developer, who retains final responsibility for the product.
 
 ## Development and Testing Environment
 
@@ -123,17 +108,6 @@ The iPhone and iPad are used for user-facing workflow testing. The Mac is the ma
 
 This is a realistic but limited independent testing environment, not a claim of coverage for every device or condition.
 
-## Documentation and Implementation
-
-The public documents have distinct roles:
-
-- `README.md` explains the product and its principles.
-- `Docs/ProductSpecification.md` is the source of truth for current user-visible behavior.
-- `Docs/ARCHITECTURE.md` describes responsibility boundaries in the current source code.
-- `Docs/Diagrams/` provides explanatory views of current flows at different levels of detail.
-
-The diagrams are explanatory representations, not a separate executable specification. Future ideas are not presented as implemented features. If released behavior and documentation differ, the difference should be documented as a known limitation or corrected together with the affected source and paired Japanese/English documents. See [Documentation Scope](Docs/DOCUMENTATION_SCOPE.md).
-
 ## Product Specification
 
 The product behavior, data flow, interaction rules, export rules, AI exchange format, and accessibility requirements are documented in:
@@ -147,26 +121,6 @@ Narabi separates UI coordination from testable policies, services, loaders, engi
 
 GitHub Actions runs repository audits on Ubuntu and the `NarabiTests` unit-test target on a macOS iPhone Simulator. The latest locally verified test count, Release-build result, and verification scope are recorded in [Docs/TESTING.md](Docs/TESTING.md). These checks reduce regressions but do not claim coverage of every device, file, or operating condition.
 
-## Help Review Translations
-
-You do not need to build the app or edit source code to help improve a translation.
-
-- Start with the [localization guide](Docs/Localization/README.md).
-- Review the [localized app names](Docs/Localization/APP_NAMES.md).
-- Check terminology and screen context in the [glossary](Docs/Localization/GLOSSARY.md).
-- Read or search the current text in the [generated locale views](Docs/Localization/Generated/).
-- Submit a correction or new-language proposal with the [Translation issue form](https://github.com/mexenixi/narabi/issues/new?template=translation.yml).
-
-Natural local expression is preferred over literal translation. Suggestions from native and fluent speakers are especially helpful. Machine-assisted proposals are welcome when clearly identified. The Xcode string catalogs remain the source of truth.
-
-### Languages not yet included are welcome
-
-Suggestions are welcome even when a language is not currently included in Narabi. You do not need to prepare every string, build the app, edit an Xcode string catalog, or open a pull request.
-
-Use the Translation Issue form and choose **Add a new language**. Provide the locale code, language name, regional variant if applicable, writing direction, and as much proposed wording as you can. A partial proposal, terminology review, app-name suggestion, or offer to review a future draft is also useful. Leave **Current text** blank when the locale does not yet exist, and use **Reason and usage context** to explain regional usage, tone, script, or other requirements.
-
-The maintainer can use an accepted proposal to prepare the string-catalog entry and generated review file. Before a new locale is treated as complete, the interface strings, permission explanations, localized app name, App Store metadata, In-App Purchase names and descriptions, layout, text direction, and representative device screens should be reviewed. This staged process lets language contributors participate without needing Swift or Xcode knowledge.
-
 ## Build Notes
 
 1. Open `Narabi.xcodeproj` in Xcode.
@@ -175,14 +129,6 @@ The maintainer can use an accepted proposal to prepare the string-catalog entry 
 4. Build for an iPhone or iPad target.
 
 The repository intentionally does not include the original developer's signing team setting, certificates, provisioning profiles, or private keys.
-
-## Support development
-
-Narabi is completely free and open source. All app features remain available without sponsorship.
-
-If you would like to support continued development, testing, maintenance, documentation, localization, accessibility improvements, and future Mexenixi open-source projects, optional one-time sponsorship is available through [GitHub Sponsors](https://github.com/sponsors/mexenixi).
-
-Sponsorship is separate from the app and is never required to use Narabi.
 
 ## License
 

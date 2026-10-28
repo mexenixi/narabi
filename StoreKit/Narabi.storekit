@@ -19,11 +19,11 @@
       "familyShareable" : false,
       "internalID" : "2",
       "localizations" : [
-        { "description" : "Optional support purchase. No features are unlocked.", "displayName" : "Generous Support", "locale" : "en_US" },
+        { "description" : "Optional support purchase. No features are unlocked.", "displayName" : "More Support", "locale" : "en_US" },
         { "description" : "任意の応援購入です。機能は追加されません。", "displayName" : "しっかり応援", "locale" : "ja_JP" }
       ],
       "productID" : "com.mexenixi.narabi.support.medium",
-      "referenceName" : "Generous Support",
+      "referenceName" : "More Support",
       "type" : "Consumable"
     },
     {

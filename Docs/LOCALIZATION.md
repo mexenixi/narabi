@@ -49,9 +49,11 @@ Support-purchase text is grouped so future language-specific writing is easy to 
 
 The Support page defaults to `Follow App Language`, meaning Narabi's effective in-app language, not a fresh lookup of the device's first preferred language. Message history stores the displayed message, date, language code, and product ID locally. It does not store price, transaction ID, completion counts, or collection progress. All 21 support-message language packs are independently authored. They are not translations of one shared source; meaning, tone, imagery, and humor may differ by language.
 
+
 ## Public-link button labels
 The in-app labels that open the product, support, privacy, terms, and Japanese commercial-disclosure web pages are grouped as `info.product`, `info.support`, `info.privacy`, `info.terms`, and `info.commercial`. These labels are localized in all app languages. The destination website remains a Japanese/English website and chooses its own display language.
 
+<!-- OPTIONAL_SUPPORT_PURCHASE_CURRENT_BEHAVIOR_BEGIN -->
 ## Optional support purchase localization
 
 - Support messages use `support.message.small.*`, `support.message.medium.*`, and `support.message.large.*`.
@@ -60,8 +62,11 @@ The in-app labels that open the product, support, privacy, terms, and Japanese c
 - `support.language.*` controls the language selector on the support page. The default follows Narabi's currently effective app language, not a separate device-language lookup.
 - `support.history.*` controls the message-history screen and its all/language filter.
 - App Store purchase-sheet product names and descriptions are localized separately in App Store Connect.
+<!-- OPTIONAL_SUPPORT_PURCHASE_CURRENT_BEHAVIOR_END -->
 
+<!-- NARABI-APPLE-SUBMISSION-SUPPORT:BEGIN -->
 A purchase does not change editing features, storage capacity, usage restrictions, support priority, or any other practical capability. After purchase, one of three thank-you messages for the selected Support-page language and product is shown at random, and the message text and received date are stored locally on the device. Each of the three messages has an equal chance of being selected and has no different functional or monetary value.
+<!-- NARABI-APPLE-SUBMISSION-SUPPORT:END -->
 
 <!-- NARABI-PRIVACY-CANONICAL:BEGIN -->
 The privacy policy published on the website is canonical. `Narabi/Legal/Privacy_ja.md` and `Narabi/Legal/Privacy_en.md` are synchronized offline-reading copies and must not be edited as independent source documents.

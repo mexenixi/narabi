@@ -1344,7 +1344,7 @@
 
 ### `support.product.medium`
 
-- English: Generous Support
+- English: More Support
 - Current: 標準支持
 
 ### `support.product.small`

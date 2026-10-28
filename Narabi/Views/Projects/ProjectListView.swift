@@ -29,6 +29,7 @@ struct ProjectListView: View {
     @Binding var folderID: UUID?
     let back: () -> Void
     let open: (UUID) -> Void
+    let newProject: () -> Void
     @State private var search = ""
     @State private var selection: [UUID] = []
     @State private var renameTarget: ProjectBrowserItem?
@@ -90,12 +91,29 @@ struct ProjectListView: View {
                     if isSelecting {
                         Button(L10n.text("common.done", "完了")) { selection.removeAll() }
                     } else if folderID == nil {
-                        Button {
-                            nameDraft = ""
-                            showNewFolder = true
+                        Menu {
+                            Button {
+                                newProject()
+                            } label: {
+                                Label(
+                                    L10n.text("import.newProject", "新規プロジェクト"),
+                                    systemImage: "doc.badge.plus"
+                                )
+                            }
+                            Button {
+                                nameDraft = ""
+                                showNewFolder = true
+                            } label: {
+                                Label(
+                                    L10n.text("projects.newFolder", "新規フォルダ"),
+                                    systemImage: "folder.badge.plus"
+                                )
+                            }
                         } label: {
                             Image(systemName: "plus")
                         }
+                        .accessibilityLabel(L10n.text("common.add", "追加"))
+                        .accessibilityIdentifier("projects.add")
                     }
                 }
             }

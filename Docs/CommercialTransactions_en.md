@@ -41,15 +41,19 @@ See the App Store product page for the supported operating systems and devices.
 ## Product names
 
 - A Little Support
-- Generous Support
+- More Support
 - Big Support
 
 ## Additional notice
 
 All App features are available without charge. Purchasing support does not change App functionality, regardless of the amount or number of purchases.
 
+<!-- OPTIONAL_SUPPORT_PURCHASE_CURRENT_BEHAVIOR_BEGIN -->
 ## What an optional support purchase provides
 
 An optional support purchase is a consumable in-app purchase. Buying one does not change editing features, storage capacity, available functions, or support priority. After a verified purchase, Narabi displays one short thank-you message and stores the displayed message and received date locally on the user's device. The message history does not store the purchase amount, transaction identifier, supporter rank, or progress.
+<!-- OPTIONAL_SUPPORT_PURCHASE_CURRENT_BEHAVIOR_END -->
 
+<!-- NARABI-APPLE-SUBMISSION-SUPPORT:BEGIN -->
 A purchase does not change editing features, storage capacity, usage restrictions, support priority, or any other practical capability. After purchase, one of three thank-you messages for the selected Support-page language and product is shown at random, and the message text and received date are stored locally on the device. Each of the three messages has an equal chance of being selected and has no different functional or monetary value.
+<!-- NARABI-APPLE-SUBMISSION-SUPPORT:END -->

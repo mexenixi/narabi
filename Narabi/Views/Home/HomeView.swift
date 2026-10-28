@@ -25,6 +25,7 @@ struct HomeView: View {
                     .frame(maxWidth: 230)
 
                 Button(L10n.text("home.continue", "続きから"), action: continueProject)
+                    .accessibilityIdentifier("home.continue")
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                     .frame(maxWidth: 230)

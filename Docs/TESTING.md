@@ -4,7 +4,7 @@ This document records the latest verified baseline and the remaining manual chec
 
 ## Latest Verified Baseline
 
-- Source baseline: Narabi version 1.0 public source baseline
+- Source baseline: commit `7b42d99` (`Extract workspace layout policy`)
 - Automated unit tests: **224 passed**
 - Release configuration build: succeeded
 - Test bundles inside the Release app: **0**
@@ -93,6 +93,7 @@ The tests use stable accessibility identifiers rather than localized visible tex
 System-owned interfaces such as Photos Picker, document picker, and the share sheet are intentionally excluded from the initial smoke suite because their availability and presentation are controlled by iOS. Those flows remain part of device verification.
 
 GitHub Actions runs the UI smoke suite in a separate macOS job. Local verification runs the existing 224 unit tests and the two UI smoke tests together before release verification.
+
 
 ## StoreKit Support Purchase Verification
 
